@@ -2,9 +2,9 @@ const letterContainer = document.querySelector('#letter-container'),
       optionsContainer = document.querySelector('#options-container'),
       userInputSection = document.querySelector('#user-input-section'),
       newGameContainer = document.querySelector('#new-game-container'),
-      newGameButton = document.querySelector('new-game-button'),
+      newGameButton = document.querySelector('#new-game-button'),
       canvas = document.querySelector('#canvas'),
-      resultText = document.querySelector('result-text');
+      resultText = document.querySelector('#result-text');
 
 let options = {
     fruits: ["Apple", "Orange", "Mandarin", "Pineapple", "Banana", "Watermelon"],
@@ -68,7 +68,6 @@ function generateWord (optionValue) {
     userInputSection.innerHTML = displayItem;
 }
 
-
 function init() {
 
     winCount = 0;
@@ -92,7 +91,7 @@ function init() {
             if (charArray.includes(button.innerText)) {
                 charArray.forEach( (char, index) => {
                     //if character in array is same as clicked button
-                    if (char === button.inenrText) {
+                    if (char === button.innerText) {
                         dashes[index].innerText = char;
                         winCount++;
                         if (winCount == charArray.length) {
@@ -104,7 +103,7 @@ function init() {
                 });
             } else {
                 count++;
-                // drawMan(count);
+                drawMan(count);
                 if (count == 6) {
                     resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2>
                     <p>The word was <span>${chosenWord}</span></p>`;
@@ -117,10 +116,97 @@ function init() {
         letterContainer.append(button);
     }
     displayOptions();
+    //Call to canvasCreator (for clearing previous canvas and creating initial canvas)
+    let { initialDrawing } = canvasCreator();
+    //initialDrawing would draw the frame
+    initialDrawing();
 }
 
-init();
+function canvasCreator() {
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.strokeStyle = "#000";
+    context.lineWidth = 2;
 
+
+    function drawLine(fromX, fromY, toX, toY) {
+        context.moveTo(fromX, fromY);
+        context.lineTo(toX, toY);
+        context.stroke();
+    }
+
+    function head() {
+        context.beginPath();
+        context.arc(70, 30, 10, 0, Math.PI * 2, true);
+        context.stroke();
+    }
+
+    function body()  {
+        drawLine(70, 40, 70, 80);
+    }
+    
+    function leftArm() {
+        drawLine(70, 50, 50, 70);
+    }
+    
+    function rightArm() {
+        drawLine(70, 50, 90, 70);
+    }
+    
+    function leftLeg() {
+        drawLine(70, 80, 50, 110);
+    }
+    
+    function rightLeg() {
+        drawLine(70, 80, 90, 110);
+    }
+
+    //initial frame
+    function initialDrawing() {
+    //clear canvas
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    //bottom line
+    drawLine(10, 130, 130, 130);
+    //left line
+    drawLine(10, 10, 10, 131);
+    //top line
+    drawLine(10, 10, 70, 10);
+    //small top line
+    drawLine(70, 10, 70, 20);
+  }
+  
+  return { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightLeg };
+}
+
+function drawMan(count) {
+    let { head, body, leftArm, rightArm, leftLeg, rightLeg } = canvasCreator();
+    switch (count) {
+      case 1:
+        head();
+        break;
+      case 2:
+        body();
+        break;
+      case 3:
+        leftArm();
+        break;
+      case 4:
+        rightArm();
+        break;
+      case 5:
+        leftLeg();
+        break;
+      case 6:
+        rightLeg();
+        break;
+      default:
+        break;
+    }
+}
+
+//New Game
+newGameButton.addEventListener("click", init());
+window.onload = init();
 
 
 
