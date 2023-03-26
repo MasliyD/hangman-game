@@ -4,10 +4,10 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
-  body {
-    background-color: #8c52ff;
+body {
+    background-color: #53c175;
   }
-  .container {
+.container {
     font-size: 16px;
     background-color: #ffffff;
     width: 90vw;
@@ -19,17 +19,17 @@
     padding: 3em;
     border-radius: 0.6em;
     box-shadow: 0 1.2em 2.4em rgba(111, 85, 0, 0.25);
-  }
-  #options-container {
+}
+#options-container {
     text-align: center;
-  }
-  #options-container div {
+}
+#options-container div {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 1.2em 0 2.4em 0;
-  }
-  #options-container button {
+}
+#options-container button {
     padding: 0.6em 1.2em;
     border: 3px solid #000000;
     background-color: #ffffff;
@@ -37,32 +37,32 @@
     border-radius: 0.3em;
     text-transform: capitalize;
     cursor: pointer;
-  }
-  #options-container button:disabled {
+}
+#options-container button:disabled {
     border: 3px solid #808080;
     color: #808080;
     background-color: #efefef;
-  }
-  #options-container button.active {
+}
+#options-container button.active {
     background-color: #8c52ff;
     border: 3px solid #000000;
     color: #fff;
-  }
-  .letter-container {
+}
+.letter-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.6em;
-  }
-  #letter-container button {
+}
+#letter-container button {
     height: 2.4em;
     width: 2.4em;
     border-radius: 0.3em;
     background-color: #ffffff;
     cursor: pointer;
-  }
-  .new-game-popup {
+}
+.new-game-popup {
     background-color: #ffffff;
     position: absolute;
     left: 0;
@@ -74,46 +74,47 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 0.6em;
-  }
+}
   
-  #user-input-section {
+#user-input-section {
     display: flex;
     justify-content: center;
     font-size: 1.8em;
     margin: 0.6em 0 1.2em 0;
-  }
-  canvas {
+    letter-spacing: 0.5em;
+}
+canvas {
     display: block;
     margin: auto;
-    border: 10px solid #8c52ff;
+    border: 10px solid #e0ce44;
     border-radius: 10px;
-  }
-  .hide {
+}
+.hide {
     display: none;
-  }
-  #result-text h2 {
+}
+#result-text h2 {
     font-size: 1.8em;
     text-align: center;
-  }
-  #result-text p {
+}
+#result-text p {
     font-size: 1.25em;
     margin: 1em 0 2em 0;
-  }
-  #result-text span {
+}
+#result-text span {
     font-weight: 600;
-  }
-  #new-game-button {
+}
+#new-game-button {
     font-size: 1.25em;
     padding: 0.5em 1em;
-    background-color: #8c52ff;
+    background-color: #52ffa3;
     border: 3px solid #000000;
     color: #fff;
     border-radius: 0.2em;
     cursor: pointer;
-  }
-  .win-msg {
+}
+.win-msg {
     color: #39d78d;
-  }
-  .lose-msg {
+}
+.lose-msg {
     color: #fe5152;
-  }
+}

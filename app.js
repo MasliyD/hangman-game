@@ -8,7 +8,7 @@ const letterContainer = document.querySelector('#letter-container'),
 
 let options = {
     fruits: ["Apple", "Orange", "Mandarin", "Pineapple", "Banana", "Watermelon"],
-    animals: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
+    animals: ["Horse", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
     countries: ["India", "Hungary", "Ukraine", "France", "Zimbabwe", "Dominica"],
 };
 
@@ -205,8 +205,8 @@ function drawMan(count) {
 }
 
 //New Game
-newGameButton.addEventListener("click", init());
-window.onload = init();
+newGameButton.addEventListener("click", init);
+window.onload = init;
 
 
 
